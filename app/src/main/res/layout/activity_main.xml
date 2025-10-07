@@ -18,12 +18,13 @@
         app:srcCompat="@drawable/wiewiora" />
 
     <TextView
+        android:id="@+id/trescPytanie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="30sp"
         android:textColor="@color/orange"
-        android:text="@string/trescPytania" />
+        android:text="kk"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,8 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/orangeDark"
-            android:textColor="@color/greenLight"
+            android:backgroundTint="@color/tak"
+            android:textColor="@color/braz"
             android:textSize="20sp"
             android:text="TAK" />
 
@@ -45,8 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/orangeDark"
-            android:textColor="@color/greenLight"
+            android:backgroundTint="@color/nie"
+            android:textColor="@color/braz"
             android:textSize="20sp"
             android:text="NIE" />
     </LinearLayout>
