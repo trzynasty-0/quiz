@@ -33,9 +33,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        pytania.add(new Pytanie(R.drawable.wiewiora, "Czy wiewiórki są rude?", "Obrazek", true));
-        pytania.add(new Pytanie(R.drawable.bociek, "czy bociany odlatują na zimę", "czasem na niebie widać ich klucze", true));
-        pytania.add(new Pytanie(R.drawable.krasnal, "z krasnal na obrazku jest z krakowa??", "jest wiele miast z krasnalami w Polsce", false));
+        pytania = Repozytorium.zwrocWszystkiePytania();
 
         bNie = findViewById(R.id.button3);
         bTak = findViewById(R.id.button4);
