@@ -1,5 +1,6 @@
 package com.example.quiz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,13 +33,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        pytania.add(new Pytanie(R.drawable.wiewiora, "Czy wiewiórki zapadają w sen zimowy?", "Wiewiórki robią zapasy na zimę", true));
-        pytania.add(new Pytanie(R.drawable.bociek, "huh??", "nwm", true));
-        pytania.add(new Pytanie(R.drawable.krasnal, "z krakowa??", "nie", false));
+        pytania.add(new Pytanie(R.drawable.wiewiora, "Czy wiewiórki są rude?", "Obrazek", true));
+        pytania.add(new Pytanie(R.drawable.bociek, "czy bociany odlatują na zimę", "czasem na niebie widać ich klucze", true));
+        pytania.add(new Pytanie(R.drawable.krasnal, "z krasnal na obrazku jest z krakowa??", "jest wiele miast z krasnalami w Polsce", false));
 
         bNie = findViewById(R.id.button3);
         bTak = findViewById(R.id.button4);
         bNext = findViewById(R.id.button6);
+        bPodpowiedz = findViewById(R.id.button5);
         trescPytania = findViewById(R.id.trescPytanie);
         zdjecie = findViewById(R.id.obrazek1);
         wyswietlPytanie(numerPytanka);
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(numerPytanka < pytania.size()) {
+                        if(numerPytanka <= pytania.size()) {
                             numerPytanka++;
                             wyswietlPytanie(numerPytanka);
                         }
@@ -78,18 +80,40 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        bPodpowiedz.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MainActivity.this, PodpowiedzActivity.class);
+                        intent.putExtra("NUMERPYTANKA", numerPytanka);
+                        startActivity(intent);
+                    }
+                }
+        );
 
 
     }
 
     private void wyswietlPytanie(int ktorePytanie){
-        trescPytania.setText(pytania.get(ktorePytanie).getTrescPytania());
-        zdjecie.setImageResource(pytania.get(ktorePytanie).getIdObrazek());
+        if(numerPytanka != pytania.size()){
+            trescPytania.setText(pytania.get(ktorePytanie).getTrescPytania());
+            zdjecie.setImageResource(pytania.get(ktorePytanie).getIdObrazek());
+        }
+        else{
+            trescPytania.setText("Zdobyłeś " + wynik + " punktów");
+            zdjecie.setVisibility(View.INVISIBLE);
+            bTak.setVisibility(View.INVISIBLE);
+            bNie.setVisibility(View.INVISIBLE);
+            bNext.setVisibility(View.INVISIBLE);
+            bPodpowiedz.setVisibility(View.INVISIBLE);
+
+        }
     }
     private void sprawdzeniePoprawności(int ktorePytanie, boolean udzielonaOdpowniedz){
         if(pytania.get(ktorePytanie).isOdpowiedz() != udzielonaOdpowniedz){
             pytania.get(ktorePytanie).setCzyOdpowiedzOk(true);
             Toast.makeText(this, "Udzielono poprawną odpowiedź", Toast.LENGTH_SHORT).show();
+            wynik++;
         }
         else{
             pytania.get(ktorePytanie).setCzyOdpowiedzOk(false);
