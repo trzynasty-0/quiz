@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bTak, bNie, bPodpowiedz, bNext;
     private TextView trescPytania;
     private ImageView zdjecie;
-    private int numerPytanka = 0, iloscPytan = 3, wynik = 0;
+    private int numerPytanka = 0, wynik = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         pytania = Repozytorium.zwrocWszystkiePytania();
 
-        bNie = findViewById(R.id.button3);
-        bTak = findViewById(R.id.button4);
+        bNie = findViewById(R.id.button4);
+        bTak = findViewById(R.id.button3);
         bNext = findViewById(R.id.button6);
         bPodpowiedz = findViewById(R.id.button5);
         trescPytania = findViewById(R.id.trescPytanie);
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        sprawdzeniePoprawności(numerPytanka, true);
+                        sprawdzeniePoprawnosci(numerPytanka, true);
                         numerPytanka++;
                         wyswietlPytanie(numerPytanka);
                     }
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        sprawdzeniePoprawności(numerPytanka, false);
+                        sprawdzeniePoprawnosci(numerPytanka, false);
                         numerPytanka++;
                         wyswietlPytanie(numerPytanka);
                     }
@@ -107,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-    private void sprawdzeniePoprawności(int ktorePytanie, boolean udzielonaOdpowniedz){
-        if(pytania.get(ktorePytanie).isOdpowiedz() != udzielonaOdpowniedz){
+    private void sprawdzeniePoprawnosci(int ktorePytanie, boolean udzielonaOdpowniedz){
+        if(pytania.get(ktorePytanie).isOdpowiedz() == udzielonaOdpowniedz){
             pytania.get(ktorePytanie).setCzyOdpowiedzOk(true);
             Toast.makeText(this, "Udzielono poprawną odpowiedź", Toast.LENGTH_SHORT).show();
             wynik++;

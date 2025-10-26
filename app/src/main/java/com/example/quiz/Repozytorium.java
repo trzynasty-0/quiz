@@ -3,7 +3,7 @@ package com.example.quiz;
 import java.util.ArrayList;
 
 public class Repozytorium {
-    private static ArrayList<Pytanie> pytania;
+    private static ArrayList<Pytanie> pytania = new ArrayList<>();
     public static ArrayList<Pytanie> zwrocWszystkiePytania(){
         pytania.add(new Pytanie(R.drawable.wiewiora, "Czy wiewiórki są rude?", "Obrazek", true));
         pytania.add(new Pytanie(R.drawable.bociek, "czy bociany odlatują na zimę", "czasem na niebie widać ich klucze", true));
