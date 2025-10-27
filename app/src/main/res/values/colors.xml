@@ -2,11 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green">#1A4707</color>
-    <color name="greenLight">#61B83D</color>
-    <color name="orange">#FFA468</color>
-    <color name="orangeDark">#CE5910</color>
-    <color name="tak">#B5CE10</color>
-    <color name="nie">#CE3310</color>
-    <color name="braz">#643400</color>
+    <color name="background">#1458b0</color>
+    <color name="text">#f3ecf6</color>
+    <color name="nie">#ca5574</color>
+    <color name="tak">#4CAF50</color>
+    <color name="guzik">#7a71a3</color>
+
 </resources>

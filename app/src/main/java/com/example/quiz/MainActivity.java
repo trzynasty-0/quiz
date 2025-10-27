@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bTak, bNie, bPodpowiedz, bNext;
     private TextView trescPytania;
     private ImageView zdjecie;
+    private Boolean czyBylaPodpowiedz = false;
     private int numerPytanka = 0, wynik = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         pytania = Repozytorium.zwrocWszystkiePytania();
 
+        if(savedInstanceState != null){
+            wynik = savedInstanceState.getInt("WYNIK");
+            numerPytanka = savedInstanceState.getInt("NUMERPYTANKA");
+            czyBylaPodpowiedz = savedInstanceState.getBoolean("CZYBYLAPODPOWIEDZ");
+        }
+
         bNie = findViewById(R.id.button4);
         bTak = findViewById(R.id.button3);
         bNext = findViewById(R.id.button6);
@@ -42,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         trescPytania = findViewById(R.id.trescPytanie);
         zdjecie = findViewById(R.id.obrazek1);
         wyswietlPytanie(numerPytanka);
+
+
 
         bNext.setOnClickListener(
                 new View.OnClickListener() {
@@ -85,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, PodpowiedzActivity.class);
                         intent.putExtra("NUMERPYTANKA", numerPytanka);
                         startActivity(intent);
+                        czyBylaPodpowiedz = true;
                     }
                 }
         );
@@ -111,7 +122,13 @@ public class MainActivity extends AppCompatActivity {
         if(pytania.get(ktorePytanie).isOdpowiedz() == udzielonaOdpowniedz){
             pytania.get(ktorePytanie).setCzyOdpowiedzOk(true);
             Toast.makeText(this, "Udzielono poprawną odpowiedź", Toast.LENGTH_SHORT).show();
-            wynik++;
+            if(czyBylaPodpowiedz){
+                wynik += 2;
+                czyBylaPodpowiedz = false;
+            }
+            else{
+                wynik += 5;
+            }
         }
         else{
             pytania.get(ktorePytanie).setCzyOdpowiedzOk(false);
@@ -119,4 +136,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("NUMERPYTANKA", numerPytanka);
+        outState.putInt("WYNIK", wynik);
+        outState.putBoolean("CZYBYLAPODPOWIEDZ", czyBylaPodpowiedz);
+    }
 }

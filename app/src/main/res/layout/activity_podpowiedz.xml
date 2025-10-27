@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/green"
-    android:gravity="center"
+    android:background="@color/background"
 
     tools:context=".PodpowiedzActivity">
 
@@ -16,23 +15,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:layout_marginTop="-310dp"
-        app:srcCompat="@drawable/wiewiora" />
+        app:srcCompat="@drawable/knight" />
 
     <TextView
         android:id="@+id/tytulView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="56sp"
-        android:textColor="@color/orange"
+        android:textColor="@color/text"
+        android:gravity="center"
         android:text="Podpowiedź:" />
 
     <TextView
         android:id="@+id/podpowiedzView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/orange"
-        android:textSize="32sp"
+        android:textColor="@color/text"
+        android:textSize="18sp"
         android:gravity="center"
         android:text="Tu pojawi się podpowiedź" />
 </LinearLayout>

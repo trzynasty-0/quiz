@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">quiz</string>
-    <string name="trescPytania">Czy wiewiórka jest ruda?</string>
+    <string name="tp1">Czy ta postać nazywa się Hollow Knight?</string>
+    <string name="tp2">Czy Hornet występuje tylko w grze \"Hollow Knight\"?</string>
+    <string name="tp3">Czy te postacie są rodzeństwem?</string>
+    <string name="podpowiedz3">Czy te postacie nie są podobne?</string>
+    <string name="trescPytania">próba</string>
+    <string name="podpowiedz1">nazwa gry niekoniecznie musi nawiązywać do jej głównego bohatera</string>
+    <string name="podpowiedz2">Ostatnio wyszła kontynuacja gry \"Hollow Knight\"?</string>
 </resources>

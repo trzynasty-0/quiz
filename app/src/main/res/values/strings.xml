@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">quiz</string>
-    <string name="trescPytania">Is squirrel ginger?</string>
+    <string name="tp1">Is this character called Hollow Knight?</string>
+    <string name="tp2">Is Hornet only in the game \"Hollow Knight?\"</string>
+    <string name="tp3">Are these characters siblings?</string>
+    <string name="podpowiedz1">the name of the game does not necessarily have to refer to its main character</string>
+    <string name="podpowiedz2">A sequel to the game \"Hollow Knight\" was recently released.</string>
+    <string name="podpowiedz3">Aren\'t these characters similar?</string>
+    <string name="trescPytania">próba</string>
 </resources>

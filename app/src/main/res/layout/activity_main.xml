@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/green"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
     <ImageView
@@ -14,17 +14,19 @@
         android:layout_width="match_parent"
         android:adjustViewBounds="true"
         android:layout_height="wrap_content"
-        android:layout_margin="100px"
-        app:srcCompat="@drawable/wiewiora" />
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/knight" />
 
     <TextView
         android:id="@+id/trescPytanie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="30sp"
-        android:textColor="@color/orange"
-        android:text="kk"/>
+        android:gravity="center"
+        android:textSize="32sp"
+        android:textColor="@color/text"
+        android:layout_marginBottom="32dp"
+        android:text="treść pytania"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,22 +35,24 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="wrap_content"
+            android:layout_width="136dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/tak"
-            android:textColor="@color/braz"
-            android:textSize="20sp"
+            android:textColor="@color/text"
+            android:textSize="24sp"
+            android:layout_margin="8dp"
             android:text="TAK" />
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="wrap_content"
+            android:layout_width="136dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/nie"
-            android:textColor="@color/braz"
-            android:textSize="20sp"
+            android:textColor="@color/text"
+            android:textSize="24sp"
+            android:layout_margin="8dp"
             android:text="NIE" />
     </LinearLayout>
 
@@ -59,22 +63,25 @@
 
         <Button
             android:id="@+id/button5"
-            android:layout_width="wrap_content"
+            android:layout_width="136dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/orangeDark"
-            android:textColor="@color/greenLight"
-            android:textSize="20sp"
-            android:text="Podpowiedż" />
+            android:backgroundTint="@color/guzik"
+            android:text="Podpowiedź"
+            android:textColor="@color/text"
+            android:layout_margin="8dp"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/button6"
-            android:layout_width="wrap_content"
+            android:layout_width="136dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/orangeDark"
-            android:textColor="@color/greenLight"
-            android:textSize="20sp"
+            android:backgroundTint="@color/guzik"
+            android:textColor="@color/text"
+            android:textSize="16sp"
+            android:layout_margin="8dp"
+
             android:text="Następne" />
     </LinearLayout>
 

@@ -1,11 +1,10 @@
 package com.example.quiz;
 
 public class Pytanie {
-    private int idObrazek;
-    private String trescPytania, podpowiedz;
+    private int idObrazek, trescPytania, podpowiedz;
     private boolean odpowiedz, czyOdpowiedzOk;
 
-    public Pytanie(int idObrazek, String trescPytania, String podpowiedz, boolean odpowiedz) {
+    public Pytanie(int idObrazek, int trescPytania, int podpowiedz, boolean odpowiedz) {
         this.idObrazek = idObrazek;
         this.trescPytania = trescPytania;
         this.podpowiedz = podpowiedz;
@@ -25,11 +24,11 @@ public class Pytanie {
         return idObrazek;
     }
 
-    public String getTrescPytania() {
+    public int getTrescPytania() {
         return trescPytania;
     }
 
-    public String getPodpowiedz() {
+    public int getPodpowiedz() {
         return podpowiedz;
     }
 
